@@ -1,4 +1,4 @@
-package com.ubs.springbootjavafx.util;
+package com.cs.springbootjavafx.util;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;

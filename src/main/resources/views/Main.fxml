@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="988.0" prefWidth="1540.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="pickl" layoutX="42.0" layoutY="40.0" prefHeight="17.0" prefWidth="56.0" text="Pick up:" />
+      <Label fx:id="locl" layoutX="42.0" layoutY="82.0" prefHeight="17.0" prefWidth="71.0" text="Location" />
+      <Label fx:id="dropl" layoutX="430.0" layoutY="40.0" prefHeight="17.0" prefWidth="56.0" text="Drop off:" />
+      <Label fx:id="catl" layoutX="430.0" layoutY="82.0" prefHeight="17.0" prefWidth="71.0" text="Category:" />
+      <ChoiceBox fx:id="locd" layoutX="120.0" layoutY="78.0" onAction="#locds" prefHeight="25.0" prefWidth="225.0" />
+      <ChoiceBox fx:id="catd" layoutX="546.0" layoutY="78.0" onAction="#catds" prefHeight="25.0" prefWidth="218.0" />
+      <TableView fx:id="mtab" layoutX="42.0" layoutY="146.0" prefHeight="763.0" prefWidth="725.0">
+        <columns>
+          <TableColumn fx:id="cold" prefWidth="172.0" text="Description" />
+          <TableColumn fx:id="coly" minWidth="0.0" prefWidth="105.0" text="Year" />
+           <TableColumn fx:id="coll" prefWidth="277.0" text="Location" />
+           <TableColumn fx:id="colc" prefWidth="170.0" text="Category" />
+        </columns>
+      </TableView>
+      <Label layoutX="42.0" layoutY="945.0" prefHeight="17.0" prefWidth="85.0" text="Rental Price: " />
+      <Label fx:id="pricl" layoutX="146.0" layoutY="945.0" prefHeight="17.0" prefWidth="85.0" text="CHF 50" />
+      <Button layoutX="685.0" layoutY="941.0" mnemonicParsing="false" onAction="#rent" prefHeight="25.0" prefWidth="79.0" text="Rent it!" />
+      <DatePicker fx:id="dropd" layoutX="545.0" layoutY="36.0" onAction="#dropds" prefHeight="25.0" prefWidth="218.0" />
+      <DatePicker fx:id="pickd" layoutX="120.0" layoutY="36.0" onAction="#pickds" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="842.0" layoutY="40.0" text="Most popular vehicles">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <ListView fx:id="mplist" layoutX="842.0" layoutY="78.0" prefHeight="75.0" prefWidth="516.0" />
+      <Label layoutX="842.0" layoutY="200.0" text="Last 30 days">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView fx:id="ltab" layoutX="842.0" layoutY="242.0" prefHeight="187.0" prefWidth="516.0">
+        <columns>
+          <TableColumn fx:id="lda" prefWidth="173.0" text="Date" />
+          <TableColumn fx:id="lde" minWidth="0.0" prefWidth="209.0" text="Description" />
+            <TableColumn fx:id="lpr" prefWidth="133.0" text="Price" />
+        </columns>
+      </TableView>
+      <Label layoutX="842.0" layoutY="450.0" text="Total">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lprice" layoutX="1288.0" layoutY="450.0" text="CHF 225.00">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="842.0" layoutY="536.0" text="Future Reservations">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView fx:id="ftab" layoutX="842.0" layoutY="580.0" prefHeight="187.0" prefWidth="516.0">
+         <columns>
+            <TableColumn fx:id="fda" prefWidth="173.0" text="Date" />
+            <TableColumn fx:id="fde" minWidth="0.0" prefWidth="177.0" text="Description" />
+            <TableColumn fx:id="fpr" prefWidth="93.0" text="Price" />
+            <TableColumn fx:id="fre" prefWidth="72.0" text="Remove" />
+         </columns>
+      </TableView>
+      <Label layoutX="842.0" layoutY="793.0" text="Total">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="fprice" layoutX="1288.0" layoutY="793.0" text="CHF 225.00">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

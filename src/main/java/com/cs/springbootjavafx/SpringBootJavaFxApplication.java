@@ -1,4 +1,4 @@
-package com.ubs.springbootjavafx;
+package com.cs.springbootjavafx;
 
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

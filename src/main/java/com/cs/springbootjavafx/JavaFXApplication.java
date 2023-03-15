@@ -1,6 +1,7 @@
-package com.ubs.springbootjavafx;
+package com.cs.springbootjavafx;
 
-import com.ubs.springbootjavafx.controller.MainController;
+import com.cs.springbootjavafx.controller.LoginController;
+import com.cs.springbootjavafx.controller.MainController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -19,8 +20,8 @@ public class JavaFXApplication extends Application {
     }
     @Override
     public void start(Stage stage) {
-        MainController mainController = applicationContext.getBean(MainController.class);
-        mainController.showStage();
+        LoginController loginController = applicationContext.getBean(LoginController.class);
+        loginController.showStage();
     }
     @Override
     public void stop() {

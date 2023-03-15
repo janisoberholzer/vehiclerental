@@ -8,7 +8,7 @@
         <version>3.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ubs</groupId>
+    <groupId>com.cs</groupId>
     <artifactId>SpringBootJavaFX</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringBootJavaFX</name>
@@ -84,7 +84,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.ubs.springbootjavafx.SpringBootJavaFxApplication</mainClass>
+                    <mainClass>com.cs.springbootjavafx.SpringBootJavaFxApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
