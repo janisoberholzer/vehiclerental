@@ -116,20 +116,7 @@ public class MainController {
         this.stage.show();
     }
 
-    //@FXML
-    //private void newwindow(ActionEvent event) {
-    //    view2Controller.showStage();
-    //}
-    @FXML
-    public void initialize() {
-        loadDropDowns();
-        List<Vehicle> pvehicles = rentalRepository.findPopular(1);
-
-
-        ObservableList<String> observableListvehicle = FXCollections.observableArrayList(pvehicles.stream().map(vehicle -> (vehicle.getDescription() + ", " + vehicle.getYear().toString())).toList());
-        mplist.setItems(observableListvehicle);
-
-
+    private void rentedlast30Days(){
         List<Rental> rentalsFromUser = rentalRepository.findAllByUser(user);
         List<Rental> rentalsOfLast30Days = new ArrayList<>();
         for (Rental rental : rentalsFromUser) {
@@ -144,6 +131,21 @@ public class MainController {
         ltableList = FXCollections.observableArrayList(rentalsOfLast30Days);
         ltab.setItems(ltableList);
         lprice.setText("CHF " + total);
+    }
+
+    //@FXML
+    //private void newwindow(ActionEvent event) {
+    //    view2Controller.showStage();
+    //}
+    @FXML
+    public void initialize() {
+        loadDropDowns();
+        List<Vehicle> pvehicles = rentalRepository.findPopular(1);
+
+
+        ObservableList<String> observableListvehicle = FXCollections.observableArrayList(pvehicles.stream().map(vehicle -> (vehicle.getDescription() + ", " + vehicle.getYear().toString())).toList());
+        mplist.setItems(observableListvehicle);
+        rentedlast30Days();
     }
 
     private void loadDropDowns() {
@@ -227,6 +229,10 @@ public class MainController {
             Rental rental = new Rental(LocalDateTime.now().toInstant(ZoneOffset.UTC), pickd.getValue().atStartOfDay().toInstant(ZoneOffset.UTC), dropd.getValue().atStartOfDay().toInstant(ZoneOffset.UTC), (vehicle.getCategoryObject().getChangerate()), user, vehicle);
             System.out.println(rental);
             rentalRepository.save(rental);
+            showAlert(Alert.AlertType.INFORMATION, this.stage.getOwner(), "Form Success!", "Successfully rented");
+            showCars();
+            // check later
+            rentedlast30Days();
         }
 
 
