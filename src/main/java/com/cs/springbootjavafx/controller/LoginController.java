@@ -51,8 +51,10 @@ public class LoginController {
             User user = userRepository.findUserByEmailAndPassword(email.getText(), password.getText());
             if (user == null) throw new Exception();
             mainController.user = user;
-            this.stage = helper.changeStage(this.getClass().getClassLoader().getResource("views/Main.fxml"), event, mainController);
-            this.stage.show();
+            this.stage.close();
+            mainController.showStage();
+            //this.stage = helper.changeStage(this.getClass().getClassLoader().getResource("views/Main.fxml"), event, mainController);
+            //this.stage.show();
 
         }catch (Exception e){
             System.out.println("error");

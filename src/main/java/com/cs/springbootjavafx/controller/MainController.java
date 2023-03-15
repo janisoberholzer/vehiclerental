@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -207,14 +208,27 @@ public class MainController {
         iscats = true;
         showCars();
     }
+    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
+    }
 
     @FXML
     private void rent(ActionEvent event) {
-        Vehicle vehicle = mtab.getSelectionModel().getSelectedItem();
-        System.out.println(user.getId());
-        Rental rental = new Rental(LocalDateTime.now().toInstant(ZoneOffset.UTC), pickd.getValue().atStartOfDay().toInstant(ZoneOffset.UTC), dropd.getValue().atStartOfDay().toInstant(ZoneOffset.UTC), (vehicle.getCategoryObject().getChangerate()), user, vehicle);
-        System.out.println(rental);
-        rentalRepository.save(rental);
+        if (mtab.getSelectionModel().getSelectedItem() == null) {
+            showAlert(Alert.AlertType.ERROR, this.stage.getOwner(), "Form Error!", "Please select an available car");
+        }else {
+            Vehicle vehicle = mtab.getSelectionModel().getSelectedItem();
+            System.out.println(user.getId());
+            Rental rental = new Rental(LocalDateTime.now().toInstant(ZoneOffset.UTC), pickd.getValue().atStartOfDay().toInstant(ZoneOffset.UTC), dropd.getValue().atStartOfDay().toInstant(ZoneOffset.UTC), (vehicle.getCategoryObject().getChangerate()), user, vehicle);
+            System.out.println(rental);
+            rentalRepository.save(rental);
+        }
+
 
     }
 
